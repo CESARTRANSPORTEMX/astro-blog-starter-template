@@ -2,9 +2,422 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi primera página</title>
+    <title>MiCarga.mx | Cargas y Transporte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #0a3d62;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        nav a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0a3d62, #1e90ff);
+            color: #fff;
+            padding: 60px 30px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 0;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            background-color: #e0e0e0;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+        }
+
+        .tab.active {
+            background-color: #fff;
+            border-bottom: 3px solid #0a3d62;
+        }
+
+        .board {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 0 5px 5px 5px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .card h4 {
+            margin: 0 0 10px 0;
+            color: #0a3d62;
+        }
+
+        .card button {
+            background-color: #0a3d62;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background-color: #0a3d62;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #0a3d62;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-content button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    background: #0a3d62;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
 </head>
+
 <body>
-    <h1>¡Hola, Mundo!</h1>
+
+<header>
+    <h1>MiCarga.mx</h1>
+    <nav>
+        <a href="#" onclick="abrirModalCarga()">Publicar carga</a>
+    	<a href="#" onclick="abrirModalVehiculo()">Publicar vehículo</a>
+        <a href="#">Iniciar sesión</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Conecta tu carga con el transporte adecuado</h2>
+    <p>Publica cargas o vehículos disponibles en minutos</p>
+</section>
+
+<section class="container">
+
+    <div class="tabs">
+        <div class="tab active" onclick="mostrarCargas()">Cargas disponibles</div>
+        <div class="tab" onclick="mostrarVehiculos()">Vehículos disponibles</div>
+    </div>
+
+    <div class="board">
+
+        <!-- CARGAS -->
+        <div id="cargas">
+            <div class="card">
+                <h4>Tijuana → Guadalajara</h4>
+                <p><strong>Tipo de carga:</strong> Tarimas</p>
+                <p><strong>Peso:</strong> 8 toneladas</p>
+                <p><strong>Fecha:</strong> 20/01/2026</p>
+                <button>Contactar</button>
+            </div>
+
+            <div class="card">
+                <h4>Monterrey → CDMX</h4>
+                <p><strong>Tipo de carga:</strong> Material industrial</p>
+                <p><strong>Peso:</strong> 12 toneladas</p>
+                <p><strong>Fecha:</strong> 22/01/2026</p>
+                <button>Contactar</button>
+            </div>
+        </div>
+
+        <!-- VEHÍCULOS -->
+        <div id="vehiculos" class="hidden">
+            <div class="card">
+                <h4>Caja seca 48'</h4>
+                <p><strong>Capacidad:</strong> 20 toneladas</p>
+                <p><strong>Ubicación:</strong> Tijuana, BC</p>
+                <p><strong>Disponible:</strong> Inmediato</p>
+                <button>Contactar transportista</button>
+            </div>
+
+            <div class="card">
+                <h4>Plataforma</h4>
+                <p><strong>Capacidad:</strong> 25 toneladas</p>
+                <p><strong>Ubicación:</strong> Monterrey, NL</p>
+                <p><strong>Disponible:</strong> 21/01/2026</p>
+                <button>Contactar transportista</button>
+            </div>
+
+            <div class="card">
+                <h4>Torton</h4>
+                <p><strong>Capacidad:</strong> 15 toneladas</p>
+                <p><strong>Ubicación:</strong> Mexicali, BC</p>
+                <p><strong>Disponible:</strong> Inmediato</p>
+                <button>Contactar transportista</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 MiCarga.mx | Plataforma logística</p>
+</footer>
+
+<script>
+    function mostrarCargas() {
+        document.getElementById("cargas").classList.remove("hidden");
+        document.getElementById("vehiculos").classList.add("hidden");
+        document.querySelectorAll(".tab")[0].classList.add("active");
+        document.querySelectorAll(".tab")[1].classList.remove("active");
+    }
+
+    function mostrarVehiculos() {
+        document.getElementById("vehiculos").classList.remove("hidden");
+        document.getElementById("cargas").classList.add("hidden");
+        document.querySelectorAll(".tab")[1].classList.add("active");
+        document.querySelectorAll(".tab")[0].classList.remove("active");
+    }
+</script>
+<!-- MODAL PUBLICAR CARGA -->
+<div id="modalCarga" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModalCarga()">&times;</span>
+        <h2>Publicar carga</h2>
+
+ <form onsubmit="publicarCarga(event)">
+    <label>Origen</label>
+    <input type="text" id="origen" placeholder="Ciudad de origen" required>
+
+    <label>Destino</label>
+    <input type="text" id="destino" placeholder="Ciudad de destino" required>
+
+    <label>Tipo de carga</label>
+    <input type="text" id="tipoCarga" placeholder="Ej. tarimas, maquinaria" required>
+
+    <label>Peso aproximado (toneladas)</label>
+    <input type="number" id="peso" placeholder="Ej. 10" required>
+
+    <label>Tipo de unidad requerida</label>
+    <select id="unidad" required>
+        <option value="">Seleccionar</option>
+        <option>Caja seca</option>
+        <option>Plataforma</option>
+        <option>Torton</option>
+        <option>Trailer</option>
+        <option>Refrigerado</option>
+    </select>
+
+    <label>Fecha de carga</label>
+    <input type="date" id="fecha" required>
+
+    <label>Comentarios adicionales</label>
+    <textarea id="comentarios" rows="3"></textarea>
+
+    <button type="submit">Publicar carga</button>
+</form>
+    </div>
+</div>
+<!-- MODAL PUBLICAR VEHÍCULO -->
+<div id="modalVehiculo" class="modal hidden">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModalVehiculo()">&times;</span>
+        <h2>Publicar vehículo disponible</h2>
+
+        <form onsubmit="publicarVehiculo(event)">
+            <label>Tipo de unidad</label>
+            <select id="tipoVehiculo" required>
+                <option value="">Seleccionar</option>
+                <option>Caja seca</option>
+                <option>Plataforma</option>
+                <option>Torton</option>
+                <option>Trailer</option>
+                <option>Refrigerado</option>
+            </select>
+
+            <label>Capacidad (toneladas)</label>
+            <input type="number" id="capacidad" required>
+
+            <label>Ubicación actual</label>
+            <input type="text" id="ubicacion" placeholder="Ciudad / Estado" required>
+
+            <label>Disponible desde</label>
+            <input type="date" id="disponible" required>
+
+            <button type="submit">Publicar vehículo</button>
+        </form>
+    </div>
+
+</div>
+<script>
+    function abrirModalCarga() {
+        document.getElementById("modalCarga").classList.remove("hidden");
+    }
+
+    function cerrarModalCarga() {
+        document.getElementById("modalCarga").classList.add("hidden");
+    }
+</script>
+<script>
+function publicarCarga(event) {
+    event.preventDefault(); // evita que se recargue la página
+
+    const origen = document.getElementById("origen").value;
+    const destino = document.getElementById("destino").value;
+    const tipo = document.getElementById("tipoCarga").value;
+    const peso = document.getElementById("peso").value;
+    const unidad = document.getElementById("unidad").value;
+    const fecha = document.getElementById("fecha").value;
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <h4>${origen} → ${destino}</h4>
+        <p><strong>Tipo de carga:</strong> ${tipo}</p>
+        <p><strong>Peso:</strong> ${peso} toneladas</p>
+        <p><strong>Unidad requerida:</strong> ${unidad}</p>
+        <p><strong>Fecha:</strong> ${fecha}</p>
+        <button>Contactar</button>
+    `;
+
+    document.getElementById("cargas").prepend(card);
+
+    cerrarModalCarga();
+    event.target.reset();
+    mostrarCargas();
+}
+</script>
+<script>
+function abrirModalVehiculo() {
+    document.getElementById("modalVehiculo").classList.remove("hidden");
+}
+
+function cerrarModalVehiculo() {
+    document.getElementById("modalVehiculo").classList.add("hidden");
+}
+
+function publicarVehiculo(event) {
+    event.preventDefault();
+
+    const tipo = document.getElementById("tipoVehiculo").value;
+    const capacidad = document.getElementById("capacidad").value;
+    const ubicacion = document.getElementById("ubicacion").value;
+    const disponible = document.getElementById("disponible").value;
+
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+        <h4>${tipo}</h4>
+        <p><strong>Capacidad:</strong> ${capacidad} toneladas</p>
+        <p><strong>Ubicación:</strong> ${ubicacion}</p>
+        <p><strong>Disponible:</strong> ${disponible}</p>
+        <button>Contactar transportista</button>
+    `;
+
+    document.getElementById("vehiculos").prepend(card);
+
+    cerrarModalVehiculo();
+    event.target.reset();
+    mostrarVehiculos();
+}
+</script>
+
 </body>
 </html>
