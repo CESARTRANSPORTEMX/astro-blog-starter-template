@@ -1,423 +1,540 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <title>MiCarga.mx | Cargas y Transporte</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        header {
-            background-color: #0a3d62;
-            color: #fff;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+<title>MiCarga.mx | La plataforma logística de México</title>
 
-        header h1 {
-            margin: 0;
-            font-size: 22px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        nav a {
-            color: #fff;
-            margin-left: 20px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+<style>
 
-        .hero {
-            background: linear-gradient(135deg, #0a3d62, #1e90ff);
-            color: #fff;
-            padding: 60px 30px;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .container {
-            padding: 40px 30px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .tabs {
-            display: flex;
-            margin-bottom: 0;
-        }
-
-        .tab {
-            padding: 15px 25px;
-            background-color: #e0e0e0;
-            margin-right: 5px;
-            cursor: pointer;
-            border-radius: 5px 5px 0 0;
-            font-weight: bold;
-        }
-
-        .tab.active {
-            background-color: #fff;
-            border-bottom: 3px solid #0a3d62;
-        }
-
-        .board {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 0 5px 5px 5px;
-        }
-
-        .card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-
-        .card h4 {
-            margin: 0 0 10px 0;
-            color: #0a3d62;
-        }
-
-        .card button {
-            background-color: #0a3d62;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        footer {
-            background-color: #0a3d62;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.modal-content {
-    background: #fff;
-    padding: 25px;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 8px;
+html{
+    scroll-behavior:smooth;
 }
 
-.modal-content h2 {
-    margin-top: 0;
-    color: #0a3d62;
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+    color:#2c3e50;
+
 }
 
-.modal-content label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
+a{
+    text-decoration:none;
 }
 
-.modal-content input,
-.modal-content select,
-.modal-content textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.container{
+
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+
 }
 
-.modal-content button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 12px;
-    background: #0a3d62;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+/*=========================
+HEADER
+==========================*/
+
+header{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:white;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    z-index:1000;
+
 }
 
-.close {
-    float: right;
-    font-size: 22px;
-    cursor: pointer;
+.header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height:80px;
+
 }
 
-.hidden {
-    display: none;
+.logo{
+
+    font-size:30px;
+    font-weight:700;
+    color:#0a3d62;
+
 }
 
-    </style>
+.logo span{
+
+    color:#27ae60;
+
+}
+
+nav{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+}
+
+nav a{
+
+    color:#34495e;
+    font-weight:500;
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:#1e90ff;
+
+}
+
+/*======================
+BOTONES
+=======================*/
+
+.btn{
+
+    padding:12px 22px;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:600;
+
+}
+
+.login{
+
+    border:2px solid #0a3d62;
+    color:#0a3d62;
+
+}
+
+.login:hover{
+
+    background:#0a3d62;
+    color:white;
+
+}
+
+.registro{
+
+    background:#27ae60;
+    color:white;
+
+}
+
+.registro:hover{
+
+    background:#1d8b4b;
+
+}
+
+/*======================
+HERO
+=======================*/
+
+.hero{
+
+    margin-top:80px;
+    background:linear-gradient(135deg,#0a3d62,#1e90ff);
+    color:white;
+    padding:90px 0;
+
+}
+
+.hero-grid{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+
+}
+
+.hero h1{
+
+    font-size:52px;
+    line-height:1.2;
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    font-size:20px;
+    line-height:1.8;
+    margin-bottom:35px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+
+}
+
+.hero-buttons a{
+
+    padding:16px 28px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+
+}
+
+.btnCarga{
+
+    background:white;
+    color:#0a3d62;
+
+}
+
+.btnBuscar{
+
+    border:2px solid white;
+    color:white;
+
+}
+
+.btnBuscar:hover{
+
+    background:white;
+    color:#0a3d62;
+
+}
+
+.hero-image{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.hero-card{
+
+    width:420px;
+    background:white;
+    color:#2c3e50;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.20);
+
+}
+
+.hero-card h3{
+
+    color:#0a3d62;
+    margin-bottom:25px;
+
+}
+
+.hero-card p{
+
+    color:#555;
+    font-size:15px;
+    margin-bottom:18px;
+
+}
+
+.hero-card strong{
+
+    color:#0a3d62;
+
+}
+
+/*======================
+ESTADISTICAS
+=======================*/
+
+.stats{
+
+    margin-top:-50px;
+
+}
+
+.stats-grid{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+
+}
+
+.stat{
+
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+.stat h2{
+
+    color:#1e90ff;
+    font-size:42px;
+
+}
+
+.stat p{
+
+    margin-top:10px;
+    color:#666;
+
+}
+
+/*======================
+SECCIONES
+=======================*/
+
+section{
+
+    padding:80px 0;
+
+}
+
+.titulo{
+
+    text-align:center;
+    margin-bottom:60px;
+
+}
+
+.titulo h2{
+
+    font-size:40px;
+    color:#0a3d62;
+    margin-bottom:15px;
+
+}
+
+.titulo p{
+
+    color:#777;
+    font-size:18px;
+
+}
+
+/*======================
+RESPONSIVE
+=======================*/
+
+@media(max-width:900px){
+
+.hero-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.stats-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.stats-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+.hero-card{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>MiCarga.mx</h1>
-    <nav>
-        <a href="#" onclick="abrirModalCarga()">Publicar carga</a>
-    	<a href="#" onclick="abrirModalVehiculo()">Publicar vehículo</a>
-        <a href="#">Iniciar sesión</a>
-    </nav>
+
+<div class="container header">
+
+<div class="logo">
+
+Mi<span>Carga</span>.mx
+
+</div>
+
+<nav>
+
+<a href="#">Inicio</a>
+
+<a href="#">¿Cómo funciona?</a>
+
+<a href="#">Cargas</a>
+
+<a href="#">Vehículos</a>
+
+<a href="#">Contacto</a>
+
+<a href="login.html" class="btn login">Iniciar sesión</a>
+
+<a href="registro.html" class="btn registro">Registrarse</a>
+
+</nav>
+
+</div>
+
 </header>
 
 <section class="hero">
-    <h2>Conecta tu carga con el transporte adecuado</h2>
-    <p>Publica cargas o vehículos disponibles en minutos</p>
-</section>
 
-<section class="container">
+<div class="container hero-grid">
 
-    <div class="tabs">
-        <div class="tab active" onclick="mostrarCargas()">Cargas disponibles</div>
-        <div class="tab" onclick="mostrarVehiculos()">Vehículos disponibles</div>
-    </div>
+<div>
 
-    <div class="board">
+<h1>
+Conectamos empresas con los mejores transportistas de México.
+</h1>
 
-        <!-- CARGAS -->
-        <div id="cargas">
-            <div class="card">
-                <h4>Tijuana → Guadalajara</h4>
-                <p><strong>Tipo de carga:</strong> Tarimas</p>
-                <p><strong>Peso:</strong> 8 toneladas</p>
-                <p><strong>Fecha:</strong> 20/01/2026</p>
-                <button>Contactar</button>
-            </div>
+<p>
 
-            <div class="card">
-                <h4>Monterrey → CDMX</h4>
-                <p><strong>Tipo de carga:</strong> Material industrial</p>
-                <p><strong>Peso:</strong> 12 toneladas</p>
-                <p><strong>Fecha:</strong> 22/01/2026</p>
-                <button>Contactar</button>
-            </div>
-        </div>
+Publica tu carga, encuentra unidades disponibles y administra tus viajes desde una sola plataforma.
 
-        <!-- VEHÍCULOS -->
-        <div id="vehiculos" class="hidden">
-            <div class="card">
-                <h4>Caja seca 48'</h4>
-                <p><strong>Capacidad:</strong> 20 toneladas</p>
-                <p><strong>Ubicación:</strong> Tijuana, BC</p>
-                <p><strong>Disponible:</strong> Inmediato</p>
-                <button>Contactar transportista</button>
-            </div>
+</p>
 
-            <div class="card">
-                <h4>Plataforma</h4>
-                <p><strong>Capacidad:</strong> 25 toneladas</p>
-                <p><strong>Ubicación:</strong> Monterrey, NL</p>
-                <p><strong>Disponible:</strong> 21/01/2026</p>
-                <button>Contactar transportista</button>
-            </div>
+<div class="hero-buttons">
 
-            <div class="card">
-                <h4>Torton</h4>
-                <p><strong>Capacidad:</strong> 15 toneladas</p>
-                <p><strong>Ubicación:</strong> Mexicali, BC</p>
-                <p><strong>Disponible:</strong> Inmediato</p>
-                <button>Contactar transportista</button>
-            </div>
-        </div>
+<a href="#" class="btnCarga">
 
-    </div>
-</section>
+📦 Publicar una carga
 
-<footer>
-    <p>© 2026 MiCarga.mx | Plataforma logística</p>
-</footer>
+</a>
 
-<script>
-    function mostrarCargas() {
-        document.getElementById("cargas").classList.remove("hidden");
-        document.getElementById("vehiculos").classList.add("hidden");
-        document.querySelectorAll(".tab")[0].classList.add("active");
-        document.querySelectorAll(".tab")[1].classList.remove("active");
-    }
+<a href="#" class="btnBuscar">
 
-    function mostrarVehiculos() {
-        document.getElementById("vehiculos").classList.remove("hidden");
-        document.getElementById("cargas").classList.add("hidden");
-        document.querySelectorAll(".tab")[1].classList.add("active");
-        document.querySelectorAll(".tab")[0].classList.remove("active");
-    }
-</script>
-<!-- MODAL PUBLICAR CARGA -->
-<div id="modalCarga" class="modal hidden">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarModalCarga()">&times;</span>
-        <h2>Publicar carga</h2>
+🚛 Buscar transporte
 
- <form onsubmit="publicarCarga(event)">
-    <label>Origen</label>
-    <input type="text" id="origen" placeholder="Ciudad de origen" required>
-
-    <label>Destino</label>
-    <input type="text" id="destino" placeholder="Ciudad de destino" required>
-
-    <label>Tipo de carga</label>
-    <input type="text" id="tipoCarga" placeholder="Ej. tarimas, maquinaria" required>
-
-    <label>Peso aproximado (toneladas)</label>
-    <input type="number" id="peso" placeholder="Ej. 10" required>
-
-    <label>Tipo de unidad requerida</label>
-    <select id="unidad" required>
-        <option value="">Seleccionar</option>
-        <option>Caja seca</option>
-        <option>Plataforma</option>
-        <option>Torton</option>
-        <option>Trailer</option>
-        <option>Refrigerado</option>
-    </select>
-
-    <label>Fecha de carga</label>
-    <input type="date" id="fecha" required>
-
-    <label>Comentarios adicionales</label>
-    <textarea id="comentarios" rows="3"></textarea>
-
-    <button type="submit">Publicar carga</button>
-</form>
-    </div>
-</div>
-<!-- MODAL PUBLICAR VEHÍCULO -->
-<div id="modalVehiculo" class="modal hidden">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarModalVehiculo()">&times;</span>
-        <h2>Publicar vehículo disponible</h2>
-
-        <form onsubmit="publicarVehiculo(event)">
-            <label>Tipo de unidad</label>
-            <select id="tipoVehiculo" required>
-                <option value="">Seleccionar</option>
-                <option>Caja seca</option>
-                <option>Plataforma</option>
-                <option>Torton</option>
-                <option>Trailer</option>
-                <option>Refrigerado</option>
-            </select>
-
-            <label>Capacidad (toneladas)</label>
-            <input type="number" id="capacidad" required>
-
-            <label>Ubicación actual</label>
-            <input type="text" id="ubicacion" placeholder="Ciudad / Estado" required>
-
-            <label>Disponible desde</label>
-            <input type="date" id="disponible" required>
-
-            <button type="submit">Publicar vehículo</button>
-        </form>
-    </div>
+</a>
 
 </div>
-<script>
-    function abrirModalCarga() {
-        document.getElementById("modalCarga").classList.remove("hidden");
-    }
 
-    function cerrarModalCarga() {
-        document.getElementById("modalCarga").classList.add("hidden");
-    }
-</script>
-<script>
-function publicarCarga(event) {
-    event.preventDefault(); // evita que se recargue la página
+</div>
 
-    const origen = document.getElementById("origen").value;
-    const destino = document.getElementById("destino").value;
-    const tipo = document.getElementById("tipoCarga").value;
-    const peso = document.getElementById("peso").value;
-    const unidad = document.getElementById("unidad").value;
-    const fecha = document.getElementById("fecha").value;
+<div class="hero-image">
 
-    const card = document.createElement("div");
-    card.className = "card";
+<div class="hero-card">
 
-    card.innerHTML = `
-        <h4>${origen} → ${destino}</h4>
-        <p><strong>Tipo de carga:</strong> ${tipo}</p>
-        <p><strong>Peso:</strong> ${peso} toneladas</p>
-        <p><strong>Unidad requerida:</strong> ${unidad}</p>
-        <p><strong>Fecha:</strong> ${fecha}</p>
-        <button>Contactar</button>
-    `;
+<h3>Viaje Disponible</h3>
 
-    document.getElementById("cargas").prepend(card);
+<p><strong>Origen:</strong> Tijuana, BC</p>
 
-    cerrarModalCarga();
-    event.target.reset();
-    mostrarCargas();
-}
-</script>
-<script>
-function abrirModalVehiculo() {
-    document.getElementById("modalVehiculo").classList.remove("hidden");
-}
+<p><strong>Destino:</strong> Guadalajara, Jal.</p>
 
-function cerrarModalVehiculo() {
-    document.getElementById("modalVehiculo").classList.add("hidden");
-}
+<p><strong>Unidad:</strong> Plataforma Full</p>
 
-function publicarVehiculo(event) {
-    event.preventDefault();
+<p><strong>Peso:</strong> 26 Toneladas</p>
 
-    const tipo = document.getElementById("tipoVehiculo").value;
-    const capacidad = document.getElementById("capacidad").value;
-    const ubicacion = document.getElementById("ubicacion").value;
-    const disponible = document.getElementById("disponible").value;
+<p><strong>Publicada:</strong> Hace 8 minutos</p>
 
-    const card = document.createElement("div");
-    card.className = "card";
+</div>
 
-    card.innerHTML = `
-        <h4>${tipo}</h4>
-        <p><strong>Capacidad:</strong> ${capacidad} toneladas</p>
-        <p><strong>Ubicación:</strong> ${ubicacion}</p>
-        <p><strong>Disponible:</strong> ${disponible}</p>
-        <button>Contactar transportista</button>
-    `;
+</div>
 
-    document.getElementById("vehiculos").prepend(card);
+</div>
 
-    cerrarModalVehiculo();
-    event.target.reset();
-    mostrarVehiculos();
-}
-</script>
+</section>
 
-</body>
-</html>
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat">
+
+<h2>2,580</h2>
+
+<p>Empresas Registradas</p>
+
+</div>
+
+<div class="stat">
+
+<h2>8,340</h2>
+
+<p>Transportistas</p>
+
+</div>
+
+<div class="stat">
+
+<h2>54,200</h2>
+
+<p>Viajes Completados</p>
+
+</div>
+
+<div class="stat">
+
+<h2>421</h2>
+
+<p>Cargas Activas</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="titulo">
+
+<h2>¿Cómo funciona MiCarga?</h2>
+
+<p>
+
+Encuentra transporte o consigue nuevas cargas en solo unos minutos.
+
+</p>
+
+</div>
