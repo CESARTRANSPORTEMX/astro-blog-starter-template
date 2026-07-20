@@ -332,12 +332,59 @@ section{
     font-size:18px;
 
 }
+/* =========================
+MENÚ MÓVIL
+========================= */
+
+.mobile-left{
+
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+.user-mobile{
+
+display:none;
+font-size:28px;
+
+}
+
+.menu-toggle{
+
+display:none;
+font-size:32px;
+cursor:pointer;
+
+}
+
+/* ... aquí continúa todo el CSS del menú lateral ... */
+
 
 /*======================
 RESPONSIVE
 =======================*/
 
 @media(max-width:900px){
+
+.desktop-menu{
+
+display:none;
+
+}
+
+.menu-toggle{
+
+display:block;
+
+}
+
+.user-mobile{
+
+display:block;
+
+}
 
 .hero-grid{
 
@@ -353,33 +400,7 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-nav{
-
-display:none;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.stats-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero h1{
-
-font-size:36px;
-
-}
-
-.hero-card{
-
-width:100%;
-
-}
+}		
 
 }
 
@@ -393,33 +414,116 @@ width:100%;
 
 <div class="container header">
 
+<div class="mobile-left">
+
+<div class="menu-toggle" onclick="abrirMenu()">
+
+☰
+
+</div>
+
 <div class="logo">
 
 Mi<span>Carga</span>.mx
 
 </div>
 
-<nav>
+</div>
+
+<nav class="desktop-menu">
 
 <a href="#">Inicio</a>
-
-<a href="funcionamiento.html" class="btn funcionamiento">¿Cómo funciona?</a>
-
-<a href="cargas.html" class="btn Cargas">Cargas</a>
-
+<a href="funcionamiento.html">¿Cómo funciona?</a>
+<a href="cargas.html">Cargas</a>
 <a href="#">Vehículos</a>
-
 <a href="#">Contacto</a>
 
-<a href="login.html" class="btn login">Iniciar sesión</a>
+<a href="login.html" class="btn login">
 
-<a href="registro.html" class="btn registro">Registrarse</a>
+Iniciar sesión
+
+</a>
+
+<a href="registro.html" class="btn registro">
+
+Registrarse
+
+</a>
 
 </nav>
+
+<div class="user-mobile">
+
+👤
+
+</div>
 
 </div>
 
 </header>
+<div class="overlay" id="overlay" onclick="cerrarMenu()"></div>
+
+<aside class="sidebar-mobile" id="sidebar">
+
+<div class="close" onclick="cerrarMenu()">
+
+✕
+
+</div>
+
+<div class="perfil">
+
+<div class="avatar">
+
+👤
+
+</div>
+
+<h3>
+
+Invitado
+
+</h3>
+
+<p>
+
+Inicia sesión para acceder a todas las funciones.
+
+</p>
+
+</div>
+
+<a href="#">🏠 Inicio</a>
+
+<a href="#">📦 Publicar carga</a>
+
+<a href="cargas.html">🚛 Buscar cargas</a>
+
+<a href="#">🚚 Vehículos</a>
+
+<a href="#">📄 Mis cotizaciones</a>
+
+<a href="#">⭐ Favoritos</a>
+
+<a href="funcionamiento.html">❓ ¿Cómo funciona?</a>
+
+<a href="#">📞 Contacto</a>
+
+<hr>
+
+<a href="login.html">
+
+🔐 Iniciar sesión
+
+</a>
+
+<a href="registro.html">
+
+🟢 Registrarse
+
+</a>
+
+</aside>
 
 <section class="hero">
 
@@ -538,3 +642,22 @@ Encuentra transporte o consigue nuevas cargas en solo unos minutos.
 </p>
 
 </div>
+...
+
+<script>
+
+function abrirMenu() {
+    document.getElementById("sidebar").classList.add("active");
+    document.getElementById("overlay").style.display = "block";
+}
+
+function cerrarMenu() {
+    document.getElementById("sidebar").classList.remove("active");
+    document.getElementById("overlay").style.display = "none";
+}
+
+</script>
+
+</body>
+
+</html>
