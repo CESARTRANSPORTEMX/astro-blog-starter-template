@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Iniciar Sesión | MiCarga.mx</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#eef2f7;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+}
+
+.login-container{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+width:1100px;
+
+background:white;
+
+border-radius:20px;
+
+overflow:hidden;
+
+box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+/* PANEL IZQUIERDO */
+
+.left{
+
+background:linear-gradient(135deg,#0a3d62,#1e90ff);
+
+color:white;
+
+padding:60px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.left h1{
+
+font-size:46px;
+
+margin-bottom:20px;
+
+}
+
+.left p{
+
+line-height:1.8;
+
+font-size:18px;
+
+margin-bottom:30px;
+
+}
+
+.left ul{
+
+line-height:2.2;
+
+font-size:17px;
+
+}
+
+.left .truck{
+
+font-size:90px;
+
+margin-bottom:25px;
+
+}
+
+/* PANEL DERECHO */
+
+.right{
+
+padding:60px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+}
+
+.logo{
+
+font-size:34px;
+
+font-weight:bold;
+
+color:#0a3d62;
+
+margin-bottom:40px;
+
+text-align:center;
+
+}
+
+.logo span{
+
+color:#27ae60;
+
+}
+
+.right h2{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#0a3d62;
+
+}
+
+label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+margin-top:18px;
+
+}
+
+input{
+
+width:100%;
+
+padding:15px;
+
+border:1px solid #ccc;
+
+border-radius:10px;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+input:focus{
+
+outline:none;
+
+border-color:#1e90ff;
+
+box-shadow:0 0 10px rgba(30,144,255,.20);
+
+}
+
+button{
+
+margin-top:30px;
+
+width:100%;
+
+padding:16px;
+
+background:#27ae60;
+
+border:none;
+
+color:white;
+
+font-size:18px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#1d8b4b;
+
+}
+
+.links{
+
+margin-top:25px;
+
+text-align:center;
+
+}
+
+.links a{
+
+color:#1e90ff;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+.links p{
+
+margin-top:15px;
+
+}
+
+.divider{
+
+margin:35px 0;
+
+height:1px;
+
+background:#ddd;
+
+}
+
+.volver{
+
+margin-top:30px;
+
+text-align:center;
+
+}
+
+.volver a{
+
+color:#555;
+
+text-decoration:none;
+
+}
+
+@media(max-width:900px){
+
+.login-container{
+
+grid-template-columns:1fr;
+
+width:95%;
+
+}
+
+.left{
+
+display:none;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-container">
+
+<div class="left">
+
+<div class="truck">
+
+🚛
+
+</div>
+
+<h1>
+
+Bienvenido a MiCarga
+
+</h1>
+
+<p>
+
+La plataforma que conecta empresas con transportistas en todo México.
+
+</p>
+
+<ul>
+
+<li>✔ Publica cargas</li>
+
+<li>✔ Encuentra transporte</li>
+
+<li>✔ Recibe cotizaciones</li>
+
+<li>✔ Administra tus viajes</li>
+
+<li>✔ Consulta tu historial</li>
+
+</ul>
+
+</div>
+
+<div class="right">
+
+<div class="logo">
+
+Mi<span>Carga</span>.mx
+
+</div>
+
+<h2>
+
+Iniciar Sesión
+
+</h2>
+
+<form>
+
+<label>
+
+Correo electrónico
+
+</label>
+
+<input type="email" placeholder="correo@empresa.com">
+
+<label>
+
+Contraseña
+
+</label>
+
+<input type="password" placeholder="********">
+
+<button>
+
+Ingresar
+
+</button>
+
+</form>
+
+<div class="links">
+
+<a href="#">
+
+¿Olvidaste tu contraseña?
+
+</a>
+
+<div class="divider"></div>
+
+<p>
+
+¿Aún no tienes cuenta?
+
+</p>
+
+<br>
+
+<a href="registro.html">
+
+Crear una cuenta
+
+</a>
+
+</div>
+
+<div class="volver">
+
+<a href="index.html">
+
+← Regresar al inicio
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
