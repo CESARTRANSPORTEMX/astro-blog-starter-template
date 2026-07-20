@@ -360,6 +360,64 @@ cursor:pointer;
 }
 
 /* ... aquí continúa todo el CSS del menú lateral ... */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.45);
+    display:none;
+    z-index:998;
+}
+
+.sidebar-mobile{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:300px;
+    height:100%;
+    background:#fff;
+    z-index:999;
+    transition:.35s;
+    overflow-y:auto;
+    box-shadow:5px 0 20px rgba(0,0,0,.2);
+}
+
+.sidebar-mobile.active{
+    left:0;
+}
+
+.close{
+    text-align:right;
+    padding:20px;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.perfil{
+    background:#0a3d62;
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+.avatar{
+    font-size:60px;
+    margin-bottom:15px;
+}
+
+.sidebar-mobile a{
+    display:block;
+    padding:18px 25px;
+    color:#2c3e50;
+    border-bottom:1px solid #eee;
+    transition:.25s;
+}
+
+.sidebar-mobile a:hover{
+    background:#f4f7fb;
+}
 
 
 /*======================
@@ -659,5 +717,7 @@ function cerrarMenu() {
 </script>
 
 </body>
+
+</html>
 
 </html>
