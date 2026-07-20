@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Cargas Disponibles | MiCarga.mx</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#2c3e50;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:92%;
+    max-width:1400px;
+    margin:auto;
+}
+
+/* =========================
+HEADER
+========================= */
+
+header{
+    background:white;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.menu{
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#0a3d62;
+}
+
+.logo span{
+    color:#27ae60;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+nav a{
+    color:#34495e;
+    font-weight:500;
+}
+
+.btn{
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.login{
+    border:2px solid #0a3d62;
+    color:#0a3d62;
+}
+
+.registro{
+    background:#27ae60;
+    color:white;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    background:linear-gradient(135deg,#0a3d62,#1e90ff);
+    color:white;
+    padding:70px 0;
+}
+
+.hero h1{
+    font-size:44px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.8;
+    max-width:850px;
+}
+
+/* =========================
+ESTADISTICAS
+========================= */
+
+.stats{
+    margin-top:-40px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.stat h2{
+    font-size:38px;
+    color:#1e90ff;
+}
+
+.stat p{
+    margin-top:8px;
+    color:#666;
+}
+
+/* =========================
+LAYOUT
+========================= */
+
+.main{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:30px;
+    margin-top:50px;
+    margin-bottom:80px;
+}
+
+/* =========================
+SIDEBAR
+========================= */
+
+.sidebar{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    align-self:start;
+    position:sticky;
+    top:100px;
+}
+
+.sidebar h3{
+    margin-bottom:20px;
+    color:#0a3d62;
+}
+
+.filter-group{
+    margin-bottom:22px;
+}
+
+.filter-group label{
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.filter-group input,
+.filter-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#27ae60;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* =========================
+RESULTADOS
+========================= */
+
+.results-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.results-header h2{
+    color:#0a3d62;
+}
+
+.sort{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.sort select{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ddd;
+}
+
+/* =========================
+TARJETAS DE CARGA
+========================= */
+
+.cards{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:20px;
+}
+
+.route{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.city{
+    font-size:22px;
+    font-weight:700;
+    color:#0a3d62;
+}
+
+.arrow{
+    color:#1e90ff;
+    font-size:20px;
+}
+
+.time{
+    background:#eef5ff;
+    color:#1e90ff;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.card-body{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.item span{
+    display:block;
+    font-size:13px;
+    color:#777;
+    margin-bottom:6px;
+}
+
+.item strong{
+    color:#2c3e50;
+    font-size:16px;
+}
+
+.card-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.company{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.company-badge{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#0a3d62;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+}
+
+.company-info strong{
+    display:block;
+}
+
+.company-info small{
+    color:#777;
+}
+
+.price{
+    text-align:center;
+}
+
+.price span{
+    display:block;
+    font-size:13px;
+    color:#777;
+}
+
+.price strong{
+    font-size:28px;
+    color:#27ae60;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+}
+
+.btn-outline,
+.btn-primary{
+    padding:13px 20px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+}
+
+.btn-outline{
+    border:2px solid #1e90ff;
+    color:#1e90ff;
+    background:white;
+}
+
+.btn-primary{
+    background:#1e90ff;
+    color:white;
+}
+
+/* =========================
+PAGINACION
+========================= */
+
+.pagination{
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.pagination button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    background:white;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+    cursor:pointer;
+    font-weight:600;
+}
+
+.pagination .active{
+    background:#1e90ff;
+    color:white;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+.main{
+    grid-template-columns:1fr;
+}
+
+.sidebar{
+    position:static;
+}
+
+.card-body{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:700px){
+
+nav{
+    display:none;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+.card-top{
+    flex-direction:column;
+    gap:15px;
+}
+
+.card-body{
+    grid-template-columns:1fr;
+}
+
+.card-footer{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.actions{
+    width:100%;
+}
+
+.actions button{
+    flex:1;
+}
+
+}
+
+@media(max-width:500px){
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container menu">
+
+<div class="logo">
+
+Mi<span>Carga</span>.mx
+
+</div>
+
+<nav>
+
+<a href="index.html">Inicio</a>
+<a href="funcionamiento.html">¿Cómo funciona?</a>
+<a href="cargas.html">Cargas</a>
+<a href="vehiculos.html">Vehículos</a>
+
+<a href="login.html" class="btn login">Iniciar sesión</a>
+<a href="registro.html" class="btn registro">Registrarse</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<h1>Cargas disponibles en tiempo real</h1>
+
+<p>
+Encuentra oportunidades de carga para plataformas, cajas secas, full, sencillos y portacontenedores en todo México.
+</p>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat">
+<h2>421</h2>
+<p>Cargas activas</p>
+</div>
+
+<div class="stat">
+<h2>89</h2>
+<p>Nuevas hoy</p>
+</div>
+
+<div class="stat">
+<h2>32</h2>
+<p>Estados</p>
+</div>
+
+<div class="stat">
+<h2>8,340</h2>
+<p>Transportistas</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="container main">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<h3>🔎 Buscar carga</h3>
+
+<div class="filter-group">
+<label>Origen</label>
+<input type="text" placeholder="Ej. Tijuana">
+</div>
+
+<div class="filter-group">
+<label>Destino</label>
+<input type="text" placeholder="Ej. Monterrey">
+</div>
+
+<div class="filter-group">
+<label>Tipo de unidad</label>
+<select>
+<option>Todas</option>
+<option>Plataforma</option>
+<option>Caja seca</option>
+<option>Full</option>
+<option>Sencillo</option>
+<option>Portacontenedor</option>
+<option>Refrigerado</option>
+</select>
+</div>
+
+<div class="filter-group">
+<label>Peso mínimo</label>
+<input type="number" placeholder="Toneladas">
+</div>
+
+<div class="filter-group">
+<label>Fecha</label>
+<input type="date">
+</div>
+
+<button>Aplicar filtros</button>
+
+</aside>
+
+<!-- RESULTADOS -->
+
+<div>
+
+<div class="results-header">
+
+<h2>Mostrando 24 cargas</h2>
+
+<div class="sort">
+
+<span>Ordenar por:</span>
+
+<select>
+<option>Más recientes</option>
+<option>Precio alto</option>
+<option>Precio bajo</option>
+<option>Distancia</option>
+</select>
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<!-- CONTINÚA EN LA PARTE 2 -->		<!-- =========================
+CARGA 1
+========================= -->
+
+<div class="card">
+
+<div class="card-top">
+
+<div class="route">
+
+<span class="city">📍 Tijuana, BC</span>
+
+<span class="arrow">➜</span>
+
+<span class="city">Monterrey, NL</span>
+
+</div>
+
+<div class="time">
+
+Hace 8 minutos
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="item">
+
+<span>Tipo de carga</span>
+
+<strong>Electrónicos</strong>
+
+</div>
+
+<div class="item">
+
+<span>Unidad requerida</span>
+
+<strong>Caja Seca 53'</strong>
+
+</div>
+
+<div class="item">
+
+<span>Peso</span>
+
+<strong>24 Toneladas</strong>
+
+</div>
+
+<div class="item">
+
+<span>Fecha de carga</span>
+
+<strong>22 Julio 2026</strong>
+
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="company">
+
+<div class="company-badge">
+
+BP
+
+</div>
+
+<div class="company-info">
+
+<strong>BajaPack</strong>
+
+<small>⭐⭐⭐⭐⭐ Empresa verificada</small>
+
+</div>
+
+</div>
+
+<div class="price">
+
+<span>Pago ofrecido</span>
+
+<strong>$48,500</strong>
+
+</div>
+
+<div class="actions">
+
+<button class="btn-outline">
+
+Detalles
+
+</button>
+
+<button class="btn-primary">
+
+Cotizar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+CARGA 2
+========================= -->
+
+<div class="card">
+
+<div class="card-top">
+
+<div class="route">
+
+<span class="city">📍 Ensenada, BC</span>
+
+<span class="arrow">➜</span>
+
+<span class="city">Querétaro, QRO</span>
+
+</div>
+
+<div class="time">
+
+Hace 22 minutos
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="item">
+
+<span>Tipo de carga</span>
+
+<strong>Contenedor 40'</strong>
+
+</div>
+
+<div class="item">
+
+<span>Unidad requerida</span>
+
+<strong>Portacontenedor</strong>
+
+</div>
+
+<div class="item">
+
+<span>Peso</span>
+
+<strong>26 Toneladas</strong>
+
+</div>
+
+<div class="item">
+
+<span>Fecha de carga</span>
+
+<strong>23 Julio 2026</strong>
+
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="company">
+
+<div class="company-badge">
+
+MX
+
+</div>
+
+<div class="company-info">
+
+<strong>Importadora México</strong>
+
+<small>⭐⭐⭐⭐ Empresa verificada</small>
+
+</div>
+
+</div>
+
+<div class="price">
+
+<span>Pago ofrecido</span>
+
+<strong>$39,800</strong>
+
+</div>
+
+<div class="actions">
+
+<button class="btn-outline">
+
+Detalles
+
+</button>
+
+<button class="btn-primary">
+
+Cotizar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+CARGA 3
+========================= -->
+
+<div class="card">
+
+<div class="card-top">
+
+<div class="route">
+
+<span class="city">📍 Guadalajara, Jal.</span>
+
+<span class="arrow">➜</span>
+
+<span class="city">Ciudad de México</span>
+
+</div>
+
+<div class="time">
+
+Hace 1 hora
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="item">
+
+<span>Tipo de carga</span>
+
+<strong>Tarimas</strong>
+
+</div>
+
+<div class="item">
+
+<span>Unidad requerida</span>
+
+<strong>Plataforma Full</strong>
+
+</div>
+
+<div class="item">
+
+<span>Peso</span>
+
+<strong>28 Toneladas</strong>
+
+</div>
+
+<div class="item">
+
+<span>Fecha de carga</span>
+
+<strong>21 Julio 2026</strong>
+
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="company">
+
+<div class="company-badge">
+
+AC
+
+</div>
+
+<div class="company-info">
+
+<strong>Aceromex</strong>
+
+<small>⭐⭐⭐⭐⭐ Cliente Premium</small>
+
+</div>
+
+</div>
+
+<div class="price">
+
+<span>Pago ofrecido</span>
+
+<strong>$31,000</strong>
+
+</div>
+
+<div class="actions">
+
+<button class="btn-outline">
+
+Detalles
+
+</button>
+
+<button class="btn-primary">
+
+Cotizar
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+CARGA 4
+========================= -->
+
+<div class="card">
+
+<div class="card-top">
+
+<div class="route">
+
+<span class="city">📍 Mexicali, BC</span>
+
+<span class="arrow">➜</span>
+
+<span class="city">Hermosillo, Son.</span>
+
+</div>
+
+<div class="time">
+
+Hace 2 horas
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="item">
+
+<span>Tipo de carga</span>
+
+<strong>Alimentos</strong>
+
+</div>
+
+<div class="item">
+
+<span>Unidad requerida</span>
+
+<strong>Refrigerado</strong>
+
+</div>
+
+<div class="item">
+
+<span>Peso</span>
+
+<strong>18 Toneladas</strong>
+
+</div>
+
+<div class="item">
+
+<span>Fecha de carga</span>
+
+<strong>22 Julio 2026</strong>
+
+</div>
+
+</div>
+
+<div class="card-footer">
+
+<div class="company">
+
+<div class="company-badge">
+
+FR
+
+</div>
+
+<div class="company-info">
+
+<strong>Fresh Logistics</strong>
+
+<small>⭐⭐⭐⭐⭐ Empresa verificada</small>
+
+</div>
+
+</div>
+
+<div class="price">
+
+<span>Pago ofrecido</span>
+
+<strong>$18,500</strong>
+
+</div>
+
+<div class="actions">
+
+<button class="btn-outline">
+
+Detalles
+
+</button>
+
+<button class="btn-primary">
+
+Cotizar
+
+</button>
+
+</div>
+
+</div>
+
+</div>		
+</div>
+
+<!-- =========================
+PAGINACIÓN
+========================= -->
+
+<div class="pagination">
+
+<button>&laquo;</button>
+<button class="active">1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+<button>&raquo;</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+MODAL DETALLES
+========================= -->
+
+<div id="detalleModal" style="display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.55);justify-content:center;align-items:center;z-index:9999;">
+
+<div style="background:white;width:90%;max-width:700px;border-radius:18px;padding:35px;position:relative;">
+
+<button onclick="cerrarModal()"
+style="position:absolute;right:20px;top:20px;border:none;background:none;font-size:28px;cursor:pointer;">
+
+&times;
+
+</button>
+
+<h2 style="color:#0a3d62;margin-bottom:25px;">
+
+Detalles de la carga
+
+</h2>
+
+<p><strong>Origen:</strong> <span id="mOrigen">Tijuana</span></p>
+
+<p><strong>Destino:</strong> <span id="mDestino">Monterrey</span></p>
+
+<p><strong>Tipo:</strong> <span id="mTipo">Caja Seca 53'</span></p>
+
+<p><strong>Peso:</strong> <span id="mPeso">24 Ton</span></p>
+
+<p><strong>Empresa:</strong> <span id="mEmpresa">BajaPack</span></p>
+
+<p><strong>Observaciones:</strong></p>
+
+<p style="line-height:1.8;color:#555;">
+
+Carga general palletizada.
+Horario de carga de 08:00 a 16:00 horas.
+Se requiere unidad en buenas condiciones.
+
+</p>
+
+<button class="btn-primary"
+style="margin-top:25px;width:100%;">
+
+Enviar Cotización
+
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer style="background:#0a3d62;color:white;padding:60px 0;margin-top:80px;">
+
+<div class="container">
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;">
+
+<div>
+
+<h2>
+
+MiCarga.mx
+
+</h2>
+
+<p style="margin-top:15px;line-height:1.8;">
+
+La plataforma que conecta empresas y transportistas en todo México.
+
+</p>
+
+</div>
+
+<div>
+
+<h3>
+
+Plataforma
+
+</h3>
+
+<br>
+
+<p><a href="index.html" style="color:white;">Inicio</a></p>
+
+<p><a href="funcionamiento.html" style="color:white;">¿Cómo funciona?</a></p>
+
+<p><a href="registro.html" style="color:white;">Registrarse</a></p>
+
+<p><a href="login.html" style="color:white;">Iniciar sesión</a></p>
+
+</div>
+
+<div>
+
+<h3>
+
+Contacto
+
+</h3>
+
+<br>
+
+<p>contacto@micarga.mx</p>
+
+<p>México</p>
+
+</div>
+
+</div>
+
+<hr style="margin:35px 0;border:none;border-top:1px solid rgba(255,255,255,.2);">
+
+<div style="text-align:center;">
+
+© 2026 MiCarga.mx | Todos los derechos reservados.
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+function cerrarModal(){
+
+document.getElementById("detalleModal").style.display="none";
+
+}
+
+document.querySelectorAll(".btn-outline").forEach(function(btn){
+
+btn.addEventListener("click",function(){
+
+document.getElementById("detalleModal").style.display="flex";
+
+});
+
+});
+
+document.querySelectorAll(".btn-primary").forEach(function(btn){
+
+btn.addEventListener("click",function(){
+
+if(btn.innerText=="Cotizar"){
+
+alert("Próximamente podrás enviar una cotización desde tu cuenta.");
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
