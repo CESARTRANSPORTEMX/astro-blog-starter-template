@@ -1,229 +1,138 @@
-/* ===========================================
-   MiCarga.mx
-   app.js
-===========================================*/
+/* ==========================================
+   MiCarga.mx - app.js
+========================================== */
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-    iniciarFormulario();
+    const inputs = document.querySelectorAll("input, select, textarea");
+    const barra = document.querySelector(".progress-fill");
+    const aviso = document.getElementById("guardado");
 
-});
+    // ==========================
+    // CARGAR BORRADOR
+    // ==========================
 
-function iniciarFormulario(){
-
-    actualizarResumen();
-
-    guardarAutomatico();
-
-    actualizarProgreso();
-
-}
-const inputs = document.querySelectorAll("input, select, textarea");
-
-const barra = document.querySelector(".progress-fill");
-function guardarAutomatico(){
-
-    inputs.forEach(function(campo){
-
-        campo.addEventListener("input", guardarFormulario);
-
-    });
-
-}
-function guardarFormulario(){
-
-    let datos={};
-
-    inputs.forEach(function(campo){
-
-        let llave;
-
-        if(campo.id!=""){
-
-            llave=campo.id;
-
-        }else{
-
-            llave=campo.name || campo.placeholder;
-
-        }
-
-        datos[llave]=campo.value;
-
-    });
-
-    localStorage.setItem(
-
-        "micarga_publicacion",
-
-        JSON.stringify(datos)
-
-    );
-mensajeGuardado();
-
-}
-window.onload=function(){
-
-    let datos=
-
-    JSON.parse(
-
-        localStorage.getItem(
-
-            "micarga_publicacion"
-
-        )
-
-    );
-
-    if(!datos) return;
-
-    inputs.forEach(function(campo){
-
-        let llave;
-
-        if(campo.id!=""){
-
-            llave=campo.id;
-
-        }else{
-
-            llave=campo.name || campo.placeholder;
-
-        }
-
-        if(datos[llave]!=undefined){
-
-            campo.value=datos[llave];
-
-        }
-
-    });
+    cargarFormulario();
 
     actualizarResumen();
 
     actualizarProgreso();
 
-}
-function limpiarFormulario(){
+    // ==========================
+    // EVENTOS
+    // ==========================
 
-    localStorage.removeItem(
+    inputs.forEach(campo => {
 
-        "micarga_publicacion"
+        campo.addEventListener("input", () => {
 
-    );
+            guardarFormulario();
 
-}
-function actualizarResumen(){
+            actualizarResumen();
 
-    let origen=document.getElementById("origenCiudad");
+            actualizarProgreso();
 
-    let destino=document.getElementById("destinoCiudad");
+            validarCampo(campo);
 
-    let peso=document.getElementById("peso");
+        });
 
-    let precio=document.getElementById("precio");
+        campo.addEventListener("blur", () => {
 
-    let unidad=document.getElementById("unidad");
+            validarCampo(campo);
 
-    if(document.getElementById("rOrigen"))
-
-        document.getElementById("rOrigen").innerHTML=
-
-        origen?origen.value:"";
-
-    if(document.getElementById("rDestino"))
-
-        document.getElementById("rDestino").innerHTML=
-
-        destino?destino.value:"";
-
-    if(document.getElementById("rPeso"))
-
-        document.getElementById("rPeso").innerHTML=
-
-        peso?peso.value+" Ton":"";
-
-    if(document.getElementById("rPrecio"))
-
-        document.getElementById("rPrecio").innerHTML=
-
-        precio?"$"+precio.value:"";
-
-    if(document.getElementById("rUnidad"))
-
-        document.getElementById("rUnidad").innerHTML=
-
-        unidad?unidad.value:"";
-
-}
-/* ===========================================
-BARRA DE PROGRESO
-===========================================*/
-
-function actualizarProgreso(){
-
-    let total=inputs.length;
-
-    let completos=0;
-
-    inputs.forEach(function(campo){
-
-        if(campo.type=="checkbox"){
-
-            if(campo.checked){
-
-                completos++;
-
-            }
-
-        }else{
-
-            if(campo.value.trim()!=""){
-
-                completos++;
-
-            }
-
-        }
+        });
 
     });
 
-    let porcentaje=Math.round((completos/total)*100);
+    // ==========================
+    // GUARDAR
+    // ==========================
 
-    if(barra){
+    function guardarFormulario(){
 
-        barra.style.width=porcentaje+"%";
+        let datos={};
 
-        barra.innerHTML=porcentaje+"%";
+        inputs.forEach(campo=>{
+
+            let llave=campo.id || campo.name || campo.placeholder;
+
+            if(campo.type==="checkbox"){
+
+                datos[llave]=campo.checked;
+
+            }else{
+
+                datos[llave]=campo.value;
+
+            }
+
+        });
+
+        localStorage.setItem(
+
+            "micarga_publicacion",
+
+            JSON.stringify(datos)
+
+        );
+
+        if(aviso){
+
+            aviso.style.opacity="1";
+
+            setTimeout(()=>{
+
+                aviso.style.opacity="0";
+
+            },1500);
+
+        }
 
     }
 
-}
+    // ==========================
+    // CARGAR
+    // ==========================
 
-}
-inputs.forEach(function(campo){
+    function cargarFormulario(){
 
-    campo.addEventListener("input",function(){
+        let datos=JSON.parse(
 
-        actualizarProgreso();
+            localStorage.getItem("micarga_publicacion")
 
-        actualizarResumen();
+        );
 
-    });
+        if(!datos) return;
 
-});
+        inputs.forEach(campo=>{
 
+            let llave=campo.id || campo.name || campo.placeholder;
 
-/* ===========================================
-VALIDAR CAMPOS
-===========================================*/
+            if(datos[llave]===undefined) return;
 
-inputs.forEach(function(campo){
+            if(campo.type==="checkbox"){
 
-    campo.addEventListener("blur",function(){
+                campo.checked=datos[llave];
 
-        if(campo.value.trim()==""){
+            }else{
+
+                campo.value=datos[llave];
+
+            }
+
+        });
+
+    }
+
+    // ==========================
+    // VALIDAR
+    // ==========================
+
+    function validarCampo(campo){
+
+        if(campo.type==="checkbox") return;
+
+        if(String(campo.value).trim()===""){
 
             campo.style.borderColor="#e74c3c";
 
@@ -233,25 +142,74 @@ inputs.forEach(function(campo){
 
         }
 
-    });
+    }
+
+    // ==========================
+    // PROGRESO
+    // ==========================
+
+    function actualizarProgreso(){
+
+        let total=0;
+
+        let completos=0;
+
+        inputs.forEach(campo=>{
+
+            if(campo.type==="checkbox") return;
+
+            total++;
+
+            if(String(campo.value).trim()!==""){
+
+                completos++;
+
+            }
+
+        });
+
+        let porcentaje=Math.round((completos/total)*100);
+
+        if(barra){
+
+            barra.style.width=porcentaje+"%";
+
+            barra.innerHTML=porcentaje+"%";
+
+        }
+
+    }
+
+    // ==========================
+    // RESUMEN
+    // ==========================
+
+    function actualizarResumen(){
+
+        actualizarTexto("origenCiudad","rOrigen");
+
+        actualizarTexto("destinoCiudad","rDestino");
+
+        actualizarTexto("unidad","rUnidad");
+
+        actualizarTexto("peso","rPeso"," Ton");
+
+        actualizarTexto("precio","rPrecio"," MXN");
+
+    }
+
+    function actualizarTexto(origen,destino,sufijo=""){
+
+        const a=document.getElementById(origen);
+
+        const b=document.getElementById(destino);
+
+        if(a && b){
+
+            b.innerHTML=a.value+sufijo;
+
+        }
+
+    }
 
 });
-/* ===========================================
-MENSAJE
-===========================================*/
-
-function mensajeGuardado(){
-
-    let aviso=document.getElementById("guardado");
-
-    if(!aviso) return;
-
-    aviso.style.opacity="1";
-
-    setTimeout(function(){
-
-        aviso.style.opacity="0";
-
-    },1800);
-
-}
