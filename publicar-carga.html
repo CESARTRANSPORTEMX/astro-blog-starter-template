@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Publicar Carga | MiCarga.mx</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ==========================
+HEADER
+========================== -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+
+Mi<span>Carga</span>.mx
+
+</a>
+
+<nav class="desktop">
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="mis-cargas.html">Mis cargas</a>
+
+<a href="vehiculos.html">Vehículos</a>
+
+<a href="perfil.html">Perfil</a>
+
+</nav>
+
+<div class="mobile-icons">
+
+☰
+
+</div>
+
+</div>
+
+</header>
+
+<!-- ==========================
+ENCABEZADO
+========================== -->
+
+<section class="page-header">
+
+<div class="container">
+
+<h1>
+
+📦 Publicar una nueva carga
+
+</h1>
+
+<p>
+
+Completa la información para recibir cotizaciones de transportistas verificados.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ==========================
+FORMULARIO
+========================== -->
+
+<section class="form-section">
+
+<div class="container">
+
+<div class="wizard">
+
+<div class="step active">
+
+<div class="circle">
+
+1
+
+</div>
+
+<span>General</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+2
+
+</div>
+
+<span>Origen</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+3
+
+</div>
+
+<span>Destino</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+4
+
+</div>
+
+<span>Mercancía</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+5
+
+</div>
+
+<span>Unidad</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+6
+
+</div>
+
+<span>Precio</span>
+
+</div>
+
+<div class="line"></div>
+
+<div class="step">
+
+<div class="circle">
+
+7
+
+</div>
+
+<span>Publicar</span>
+
+</div>
+
+</div>
+
+<!-- ==========================
+TARJETA
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+Información General
+
+</h2>
+
+<p>
+
+Esta información permitirá identificar la carga dentro de la plataforma.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Nombre de la carga
+
+</label>
+
+<input
+type="text"
+placeholder="Ejemplo: Acero para Monterrey">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Empresa
+
+</label>
+
+<input
+type="text"
+placeholder="Nombre de la empresa">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Tipo de mercancía
+
+</label>
+
+<select>
+
+<option>Seleccionar</option>
+
+<option>Acero</option>
+
+<option>Alimentos</option>
+
+<option>Electrónicos</option>
+
+<option>Contenedor</option>
+
+<option>Material de construcción</option>
+
+<option>General</option>
+
+<option>Otro</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Fecha de publicación
+
+</label>
+
+<input type="date">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Folio
+
+</label>
+
+<input
+type="text"
+value="MC-2026-000001"
+readonly>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Tipo de publicación
+
+</label>
+
+<select>
+
+<option>Precio fijo</option>
+
+<option>Recibir cotizaciones</option>
+
+<option>Negociable</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+ORIGEN
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+📍 Origen
+
+</h2>
+
+<p>
+
+Indica el punto donde el transportista recogerá la mercancía.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Estado
+
+</label>
+
+<select>
+
+<option>Baja California</option>
+
+<option>Sonora</option>
+
+<option>Jalisco</option>
+
+<option>Nuevo León</option>
+
+<option>Ciudad de México</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Ciudad
+
+</label>
+
+<input
+type="text"
+placeholder="Ejemplo: Tijuana">
+
+</div>
+
+<div class="input-group full">
+
+<label>
+
+Dirección completa
+
+</label>
+
+<input
+type="text"
+placeholder="Calle, número, colonia...">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Código Postal
+
+</label>
+
+<input
+type="text"
+placeholder="22010">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Fecha de carga
+
+</label>
+
+<input type="date">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Hora de carga
+
+</label>
+
+<input type="time">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Contacto
+
+</label>
+
+<input
+type="text"
+placeholder="Nombre del contacto">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Teléfono
+
+</label>
+
+<input
+type="tel"
+placeholder="6641234567">
+
+</div>
+
+</div>
+
+</div>
+<!-- ==========================
+DESTINO
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+📍 Destino
+
+</h2>
+
+<p>
+
+Indica el lugar donde deberá entregarse la mercancía.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Estado
+
+</label>
+
+<select>
+
+<option>Seleccionar</option>
+
+<option>Baja California</option>
+
+<option>Sonora</option>
+
+<option>Sinaloa</option>
+
+<option>Jalisco</option>
+
+<option>Nuevo León</option>
+
+<option>Ciudad de México</option>
+
+<option>Estado de México</option>
+
+<option>Querétaro</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Ciudad
+
+</label>
+
+<input
+type="text"
+placeholder="Ejemplo: Monterrey">
+
+</div>
+
+<div class="input-group full">
+
+<label>
+
+Dirección completa
+
+</label>
+
+<input
+type="text"
+placeholder="Calle, número, colonia...">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Código Postal
+
+</label>
+
+<input
+type="text"
+placeholder="64000">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Fecha de descarga
+
+</label>
+
+<input type="date">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Hora estimada
+
+</label>
+
+<input type="time">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Contacto de descarga
+
+</label>
+
+<input
+type="text"
+placeholder="Nombre del contacto">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Teléfono
+
+</label>
+
+<input
+type="tel"
+placeholder="8111234567">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+MERCANCÍA
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+📦 Información de la mercancía
+
+</h2>
+
+<p>
+
+Describe la carga para que los transportistas puedan cotizar correctamente.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group full">
+
+<label>
+
+Descripción
+
+</label>
+
+<textarea
+rows="4"
+placeholder="Ejemplo: Bobinas de acero, producto terminado, maquinaria industrial, mercancía paletizada..."></textarea>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Peso (Toneladas)
+
+</label>
+
+<input
+type="number"
+placeholder="26">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Volumen (m³)
+
+</label>
+
+<input
+type="number"
+placeholder="60">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Número de pallets
+
+</label>
+
+<input
+type="number"
+placeholder="24">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Valor de la mercancía (MXN)
+
+</label>
+
+<input
+type="number"
+placeholder="350000">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Tipo de embalaje
+
+</label>
+
+<select>
+
+<option>Seleccionar</option>
+
+<option>Pallet</option>
+
+<option>Caja</option>
+
+<option>Contenedor</option>
+
+<option>Rollo</option>
+
+<option>Granel</option>
+
+<option>Tarima</option>
+
+<option>Otro</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Mercancía peligrosa
+
+</label>
+
+<select>
+
+<option>No</option>
+
+<option>Sí</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Requiere control de temperatura
+
+</label>
+
+<select>
+
+<option>No</option>
+
+<option>Sí</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Temperatura requerida
+
+</label>
+
+<input
+type="text"
+placeholder="Ejemplo: 4°C">
+
+</div>
+
+<div class="input-group full">
+
+<label>
+
+Observaciones de la mercancía
+
+</label>
+
+<textarea
+rows="5"
+placeholder="Información adicional para el transportista..."></textarea>
+
+</div>
+
+</div>
+
+</div>
+<!-- ==========================
+UNIDAD REQUERIDA
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+🚛 Unidad requerida
+
+</h2>
+
+<p>
+
+Selecciona el tipo de transporte que necesitas para esta carga.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>Tipo de unidad</label>
+
+<select>
+
+<option>Seleccionar</option>
+
+<option>Plataforma 40'</option>
+
+<option>Caja Seca 53'</option>
+
+<option>Full</option>
+
+<option>Sencillo</option>
+
+<option>Portacontenedor</option>
+
+<option>Refrigerado</option>
+
+<option>Torton</option>
+
+<option>Rabón</option>
+
+<option>Camioneta 3.5T</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Capacidad mínima</label>
+
+<input
+type="number"
+placeholder="Toneladas">
+
+</div>
+
+<div class="input-group">
+
+<label>Número de unidades</label>
+
+<input
+type="number"
+value="1">
+
+</div>
+
+<div class="input-group">
+
+<label>Viaje</label>
+
+<select>
+
+<option>Sencillo</option>
+
+<option>Full</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Operadores requeridos</label>
+
+<select>
+
+<option>1</option>
+
+<option>2</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>Remolques</label>
+
+<select>
+
+<option>1</option>
+
+<option>2</option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+REQUISITOS ESPECIALES
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+🛡️ Requisitos especiales
+
+</h2>
+
+<p>
+
+Selecciona únicamente los servicios necesarios para este viaje.
+
+</p>
+
+<div class="checks-grid">
+
+<label><input type="checkbox"> GPS obligatorio</label>
+
+<label><input type="checkbox"> Custodia armada</label>
+
+<label><input type="checkbox"> Custodia virtual</label>
+
+<label><input type="checkbox"> Unidad modelo reciente</label>
+
+<label><input type="checkbox"> Caja limpia</label>
+
+<label><input type="checkbox"> Caja seca certificada</label>
+
+<label><input type="checkbox"> Refrigeración activa</label>
+
+<label><input type="checkbox"> Citas programadas</label>
+
+<label><input type="checkbox"> Maniobras incluidas</label>
+
+<label><input type="checkbox"> Operador certificado</label>
+
+<label><input type="checkbox"> Equipo de seguridad</label>
+
+<label><input type="checkbox"> Seguro de carga</label>
+
+<label><input type="checkbox"> Rastreo satelital</label>
+
+<label><input type="checkbox"> Carta Porte requerida</label>
+
+<label><input type="checkbox"> Evidencia fotográfica</label>
+
+<label><input type="checkbox"> Firma electrónica</label>
+
+</div>
+
+</div>
+
+<!-- ==========================
+PRECIO
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+💰 Información económica
+
+</h2>
+
+<p>
+
+Define cómo deseas contratar el transporte.
+
+</p>
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>
+
+Modalidad
+
+</label>
+
+<select>
+
+<option>Precio fijo</option>
+
+<option>Recibir cotizaciones</option>
+
+<option>Negociable</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Precio (MXN)
+
+</label>
+
+<input
+type="number"
+placeholder="38000">
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Forma de pago
+
+</label>
+
+<select>
+
+<option>Transferencia</option>
+
+<option>Crédito 15 días</option>
+
+<option>Crédito 30 días</option>
+
+<option>Contra entrega</option>
+
+<option>Anticipo + saldo</option>
+
+</select>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+Tiempo para recibir propuestas
+
+</label>
+
+<select>
+
+<option>2 horas</option>
+
+<option>6 horas</option>
+
+<option>12 horas</option>
+
+<option>24 horas</option>
+
+<option>48 horas</option>
+
+</select>
+
+</div>
+
+<div class="input-group full">
+
+<label>
+
+Condiciones comerciales
+
+</label>
+
+<textarea
+rows="5"
+placeholder="Especifica condiciones de pago, penalizaciones, requisitos adicionales, etc."></textarea>
+
+</div>
+
+</div>
+
+</div>
+<div class="form-card">
+
+<h2>
+
+📄 Documentación incluida
+
+</h2>
+
+<p>
+
+Selecciona la documentación que será entregada al transportista al momento de la carga o por correo electrónico.
+
+</p>
+
+<div class="checks-grid">
+
+<label><input type="checkbox"> Carta Porte</label>
+
+<label><input type="checkbox"> Factura</label>
+
+<label><input type="checkbox"> Packing List</label>
+
+<label><input type="checkbox"> Orden de Compra</label>
+
+<label><input type="checkbox"> Pedimento</label>
+
+<label><input type="checkbox"> Certificado de Calidad</label>
+
+<label><input type="checkbox"> Hoja de Seguridad (MSDS)</label>
+
+<label><input type="checkbox"> Citas de entrega</label>
+
+<label><input type="checkbox"> Etiquetas</label>
+
+<label><input type="checkbox"> Fotografías de la carga</label>
+
+<label><input type="checkbox"> Instrucciones de carga</label>
+
+<label><input type="checkbox"> Ninguno</label>
+
+</div>
+
+<div class="input-group full" style="margin-top:25px;">
+
+<label>
+
+Observaciones sobre la documentación
+
+</label>
+
+<textarea rows="4" placeholder="Ejemplo: La Carta Porte será enviada una vez asignado el transportista. La cita se enviará por correo electrónico."></textarea>
+
+</div>
+
+</div>
+<!-- ==========================
+CONFIRMACIÓN
+========================== -->
+
+<div class="form-card">
+
+<h2>
+
+✅ Confirmación
+
+</h2>
+
+<div class="checks-grid">
+
+<label>
+
+<input type="checkbox">
+
+Confirmo que la información es correcta.
+
+</label>
+
+<label>
+
+<input type="checkbox">
+
+Acepto los términos y condiciones.
+
+</label>
+
+<label>
+
+<input type="checkbox">
+
+Autorizo compartir esta carga con transportistas registrados.
+
+</label>
+
+</div>
+
+</div>
+<!-- ==========================
+RESUMEN
+========================== -->
+
+<div class="form-card resumen">
+
+<h2>
+
+📋 Resumen de la publicación
+
+</h2>
+
+<div class="resume-grid">
+
+<div>
+
+<strong>Origen</strong>
+
+<p>Tijuana, BC</p>
+
+</div>
+
+<div>
+
+<strong>Destino</strong>
+
+<p>Monterrey, NL</p>
+
+</div>
+
+<div>
+
+<strong>Unidad</strong>
+
+<p>Plataforma Full</p>
+
+</div>
+
+<div>
+
+<strong>Peso</strong>
+
+<p>26 toneladas</p>
+
+</div>
+
+<div>
+
+<strong>Modalidad</strong>
+
+<p>Recibir cotizaciones</p>
+
+</div>
+
+<div>
+
+<strong>Documentos</strong>
+
+<p>Carta Porte + Factura</p>
+
+</div>
+
+</div>
+
+<div class="progress-box">
+
+<div class="progress-title">
+
+Calidad de la publicación
+
+</div>
+
+<div class="progress">
+
+<div class="progress-fill">
+
+92%
+
+</div>
+
+</div>
+
+<p>
+
+Una publicación completa recibe más cotizaciones.
+
+</p>
+
+</div>
+
+</div>
